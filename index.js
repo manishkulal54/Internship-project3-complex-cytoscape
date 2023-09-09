@@ -160,8 +160,7 @@ function fetchFileData(fileUrl, sheetIndex) {
             const indexObj = {} //container for the indexes
             let index = 0
             sheetData.forEach(row => {
-                console.log(row);
-                let codeArr = row.code.split("+");
+                let codeArr = row.Code.split("+");
                 let code = codeArr[0];
                 let complex = codeArr[1];
                 if (!complexMap.has(complex)) {
@@ -179,10 +178,10 @@ function fetchFileData(fileUrl, sheetIndex) {
 
             const geneObj = {} //container for the gene
             sheetData.forEach(row => {
-                let codeArr = row.code.split("+");
+                let codeArr = row.Code.split("+");
                 let code = codeArr[0];
                 let complex = codeArr[1];
-                let geneName = row.genes;
+                let geneName = row.Genes;
                 const complexNode = complexMap.get(complex)
                 if (!(`${complex}-${geneName}` in geneObj)) {
                     geneObj[`${complex}-${geneName}`] = true //complex-genename:true format
@@ -198,11 +197,11 @@ function fetchFileData(fileUrl, sheetIndex) {
 
             let sitesObj = {} //continer for the sites
             sheetData.forEach(row => {
-                let codeArr = row.code.split("+");
+                let codeArr = row.Code.split("+");
                 let code = codeArr[0];
                 let complex = codeArr[1];
-                let geneName = row.genes;
-                let siteName = row.sites;
+                let geneName = row.Genes;
+                let siteName = row.Sites;
                 let frequency = row.Frequency
                 root.children[indexObj[complex]].children.forEach(gn => {
                     if (gn.name === geneName) {
@@ -224,7 +223,7 @@ function fetchFileData(fileUrl, sheetIndex) {
         })
         .catch(err => {
             console.error("Error Found !!!", err);
-            alert("Error found :", " Check your input file with names (genes,sites,code,Frequency) also match the case")
+            alert("Error found :", " Check your input file with names (Genes,Sites,Code,Frequency) also match the case")
         })
 }
 
