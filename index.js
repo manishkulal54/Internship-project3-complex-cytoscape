@@ -206,8 +206,8 @@ function fetchFileData(fileUrl, sheetIndex) {
                 let frequency = row.Frequency
                 root.children[indexObj[complex]].children.forEach(gn => {
                     if (gn.name === geneName) {
-                        if (!(`${complex}-${geneName}-${siteName}` in sitesObj)) {
-                            sitesObj[`${complex}-${geneName}-${siteName}`] = true //complex-genename-sitename:true format
+                        if (!(`${complex}-${geneName}-${siteName}-${code}` in sitesObj)) {
+                            sitesObj[`${complex}-${geneName}-${siteName}-${code}`] = true //complex-genename-sitename:true format
                             const siteNode = {
                                 name: siteName,
                                 code,
